@@ -53,7 +53,7 @@
 
     .btn {
       display: inline-block;
-      margin-top: 25px;
+      margin-top: 20px;
       padding: 12px 28px;
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: #000;
@@ -87,6 +87,29 @@
       text-decoration: none;
       font-weight: bold;
     }
+
+    /* Offer Form */
+    #offerForm {
+      display: none;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .submit-btn {
+      background: #22c55e;
+      color: white;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -106,15 +129,11 @@
       Serious buyers only. Quick deal available.
     </div>
 
-    <!-- Contact Button -->
-    <button class="btn" onclick="showContact()">
-      Contact Owner
-    </button>
+    <!-- Contact -->
+    <button class="btn" onclick="showContact()">Contact Owner</button>
 
-    <!-- Contact Info -->
     <div id="contactBox">
       <p>📧 manithecool225@gmail.com</p>
-
       <p>
         🟢 WhatsApp: 
         <a href="https://wa.me/919441810275?text=Hi%20I%20am%20interested%20in%20cloudstorm.in" target="_blank">
@@ -123,11 +142,27 @@
       </p>
     </div>
 
+    <!-- Offer Button -->
+    <button class="btn" onclick="showOffer()">Make an Offer</button>
+
+    <!-- Offer Form -->
+    <form id="offerForm" action="mailto:manithecool225@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="number" name="offer" placeholder="Your Offer Amount" required>
+      <textarea name="message" placeholder="Message (optional)"></textarea>
+      <button type="submit" class="btn submit-btn">Send Offer</button>
+    </form>
+
   </div>
 
   <script>
     function showContact() {
       document.getElementById("contactBox").style.display = "block";
+    }
+
+    function showOffer() {
+      document.getElementById("offerForm").style.display = "block";
     }
   </script>
 
