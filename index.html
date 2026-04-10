@@ -53,7 +53,7 @@
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 25px;
       padding: 12px 28px;
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: #000;
@@ -62,7 +62,6 @@
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      text-decoration: none;
       transition: 0.3s;
     }
 
@@ -70,20 +69,23 @@
       transform: scale(1.05);
     }
 
-    .whatsapp {
-      display: block;
-      margin-top: 15px;
-      background: #25D366;
-      color: white;
-    }
-
-    #emailBox {
+    #contactBox {
       display: none;
       margin-top: 20px;
-      font-size: 18px;
+      font-size: 16px;
       background: rgba(255,255,255,0.1);
-      padding: 10px 15px;
+      padding: 12px 18px;
       border-radius: 6px;
+    }
+
+    #contactBox p {
+      margin: 8px 0;
+    }
+
+    a {
+      color: #25D366;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -104,28 +106,28 @@
       Serious buyers only. Quick deal available.
     </div>
 
-    <!-- Email Button -->
-    <button class="btn" onclick="showEmail()">
+    <!-- Contact Button -->
+    <button class="btn" onclick="showContact()">
       Contact Owner
     </button>
 
-    <!-- WhatsApp Button -->
-    <a class="btn whatsapp" 
-       href="https://wa.me/919441810275?text=Hi%20I%20am%20interested%20in%20cloudstorm.in" 
-       target="_blank">
-      WhatsApp Owner
-    </a>
+    <!-- Contact Info -->
+    <div id="contactBox">
+      <p>📧 manithecool225@gmail.com</p>
 
-    <!-- Email Display -->
-    <div id="emailBox">
-      📧 manithecool225@gmail.com
+      <p>
+        🟢 WhatsApp: 
+        <a href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20cloudstorm.in" target="_blank">
+          9876543210
+        </a>
+      </p>
     </div>
 
   </div>
 
   <script>
-    function showEmail() {
-      document.getElementById("emailBox").style.display = "block";
+    function showContact() {
+      document.getElementById("contactBox").style.display = "block";
     }
   </script>
 
