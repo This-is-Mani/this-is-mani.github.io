@@ -33,6 +33,11 @@
       margin: 20px auto;
     }
 
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
     .price {
       font-size: 1.5rem;
       margin-top: 10px;
@@ -47,7 +52,8 @@
     }
 
     .btn {
-      margin-top: 25px;
+      display: inline-block;
+      margin-top: 20px;
       padding: 12px 28px;
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: #000;
@@ -56,11 +62,19 @@
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
+      text-decoration: none;
       transition: 0.3s;
     }
 
     .btn:hover {
       transform: scale(1.05);
+    }
+
+    .whatsapp {
+      display: block;
+      margin-top: 15px;
+      background: #25D366;
+      color: white;
     }
 
     #emailBox {
@@ -90,10 +104,19 @@
       Serious buyers only. Quick deal available.
     </div>
 
+    <!-- Email Button -->
     <button class="btn" onclick="showEmail()">
       Contact Owner
     </button>
 
+    <!-- WhatsApp Button -->
+    <a class="btn whatsapp" 
+       href="https://wa.me/919441810275?text=Hi%20I%20am%20interested%20in%20cloudstorm.in" 
+       target="_blank">
+      WhatsApp Owner
+    </a>
+
+    <!-- Email Display -->
     <div id="emailBox">
       📧 manithecool225@gmail.com
     </div>
