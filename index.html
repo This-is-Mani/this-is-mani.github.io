@@ -8,118 +8,107 @@
 
   <style>
     html {
-      font-size: clamp(16px, 1.2vw, 20px);
+      font-size: clamp(18px, 1.4vw, 22px); /* 🔥 increased base font */
     }
 
     body {
       margin: 0;
 
-      /* ✅ CLEAN BACKGROUND (NO BLACK BOX) */
-      background: url('bg.png') no-repeat top center;
-      background-size: 100% auto;
+      /* Background */
+      background: url('bg.png') no-repeat center center;
+      background-size: cover;
       background-color: #0f172a;
 
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
-    }
 
-    /* 🔥 VERY LIGHT OVERLAY (optional, remove if not needed) */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.15);
-      pointer-events: none;
+      /* 🔥 CENTER FIX */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
 
     .container {
-      max-width: 600px;
-      margin: 80px auto;
+      max-width: 700px;
       padding: 20px;
-      position: relative;
-      z-index: 1;
     }
 
     h1 {
-      font-size: 2.6rem;
+      font-size: 2.8rem; /* 🔥 bigger */
       margin-bottom: 10px;
     }
 
     .line {
-      width: 180px;
+      width: 200px;
       height: 2px;
       background: #38bdf8;
-      margin: 15px auto;
+      margin: 20px auto;
     }
 
     p {
-      font-size: 1.2rem;
-      margin: 6px 0;
+      font-size: 1.3rem; /* 🔥 bigger */
+      margin: 8px 0;
     }
 
     .price {
-      font-size: 1.6rem;
+      font-size: 1.9rem; /* 🔥 bigger */
       margin-top: 10px;
       color: #38bdf8;
       font-weight: bold;
     }
 
     .subtext {
-      font-size: 0.85rem;
-      opacity: 0.7;
+      font-size: 1rem;
+      opacity: 0.75;
       margin-top: 10px;
     }
 
     .actions {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 15px;
       flex-wrap: wrap;
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .btn {
-      padding: 10px 20px;
+      padding: 14px 28px; /* 🔥 bigger */
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: #000;
       border: none;
       border-radius: 999px;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: bold;
       cursor: pointer;
+      transition: 0.3s;
     }
 
     .btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
-    /* CONTACT */
     .inline-box {
       display: none;
-      margin-top: 15px;
+      margin-top: 18px;
 
       justify-content: center;
-      align-items: center;
-      gap: 20px;
+      gap: 25px;
       flex-wrap: wrap;
 
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .email a {
       color: #e5e7eb;
       text-decoration: none;
-    }
-
-    .email a:hover {
-      color: white;
     }
 
     .whatsapp a {
@@ -128,12 +117,8 @@
       font-weight: 600;
     }
 
-    .whatsapp a:hover {
-      color: #4ade80;
-    }
-
     .whatsapp-icon {
-      width: 18px;
+      width: 20px;
     }
 
     #offerForm {
@@ -143,11 +128,11 @@
 
     input, textarea {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       margin: 6px 0;
       border-radius: 4px;
       border: none;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     .submit-btn {
@@ -158,12 +143,13 @@
 
     /* MOBILE */
     @media (max-width: 600px) {
-      .container {
-        margin: 40px auto;
+      body {
+        align-items: flex-start; /* 🔥 better mobile */
+        padding-top: 40px;
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       .actions {
@@ -210,17 +196,9 @@
       <div class="contact-item whatsapp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
              class="whatsapp-icon">
-        <a href="https://wa.me/919441810275" target="_blank">9441810275</a>
+        <a href="https://wa.me/919441810275">9441810275</a>
       </div>
     </div>
-
-    <form id="offerForm">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="number" placeholder="Your Offer Amount" required>
-      <textarea placeholder="Message (optional)"></textarea>
-      <button type="submit" class="btn submit-btn">Send Offer</button>
-    </form>
 
   </div>
 
@@ -231,8 +209,7 @@
     }
 
     function toggleOffer() {
-      const form = document.getElementById("offerForm");
-      form.style.display = (form.style.display === "block") ? "none" : "block";
+      alert("Offer form coming next step");
     }
   </script>
 
