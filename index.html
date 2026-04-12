@@ -8,13 +8,12 @@
 
   <style>
     html {
-      font-size: clamp(18px, 1.4vw, 22px); /* 🔥 increased base font */
+      font-size: clamp(18px, 1.4vw, 22px);
     }
 
     body {
       margin: 0;
 
-      /* Background */
       background: url('bg.png') no-repeat center center;
       background-size: cover;
       background-color: #0f172a;
@@ -23,7 +22,6 @@
       font-family: Arial, sans-serif;
       text-align: center;
 
-      /* 🔥 CENTER FIX */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -36,7 +34,7 @@
     }
 
     h1 {
-      font-size: 2.8rem; /* 🔥 bigger */
+      font-size: 2.8rem;
       margin-bottom: 10px;
     }
 
@@ -48,12 +46,12 @@
     }
 
     p {
-      font-size: 1.3rem; /* 🔥 bigger */
+      font-size: 1.3rem;
       margin: 8px 0;
     }
 
     .price {
-      font-size: 1.9rem; /* 🔥 bigger */
+      font-size: 1.9rem;
       margin-top: 10px;
       color: #38bdf8;
       font-weight: bold;
@@ -74,7 +72,7 @@
     }
 
     .btn {
-      padding: 14px 28px; /* 🔥 bigger */
+      padding: 14px 28px;
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: #000;
       border: none;
@@ -141,10 +139,9 @@
       margin-top: 10px;
     }
 
-    /* MOBILE */
     @media (max-width: 600px) {
       body {
-        align-items: flex-start; /* 🔥 better mobile */
+        align-items: flex-start;
         padding-top: 40px;
       }
 
@@ -188,6 +185,7 @@
       <button class="btn" onclick="toggleOffer()">Make an Offer</button>
     </div>
 
+    <!-- CONTACT -->
     <div id="contactBox" class="inline-box">
       <div class="contact-item email">
         📧 <a href="mailto:manithecool225@gmail.com">manithecool225@gmail.com</a>
@@ -200,16 +198,32 @@
       </div>
     </div>
 
+    <!-- OFFER FORM -->
+    <form id="offerForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="number" placeholder="Your Offer Amount" required>
+      <textarea placeholder="Message (optional)"></textarea>
+      <button type="submit" class="btn submit-btn">Send Offer</button>
+    </form>
+
   </div>
 
   <script>
     function toggleContact() {
       const box = document.getElementById("contactBox");
+      const form = document.getElementById("offerForm");
+
+      form.style.display = "none";
       box.style.display = (box.style.display === "flex") ? "none" : "flex";
     }
 
     function toggleOffer() {
-      alert("Offer form coming next step");
+      const form = document.getElementById("offerForm");
+      const contact = document.getElementById("contactBox");
+
+      contact.style.display = "none";
+      form.style.display = (form.style.display === "block") ? "none" : "block";
     }
   </script>
 
