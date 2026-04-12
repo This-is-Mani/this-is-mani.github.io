@@ -33,6 +33,13 @@
       padding: 20px;
     }
 
+    /* 🔥 LOGO */
+    .logo {
+      width: 80px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 15px rgba(56,189,248,0.6));
+    }
+
     h1 {
       font-size: 2.8rem;
       margin-bottom: 10px;
@@ -71,7 +78,6 @@
       margin-top: 25px;
     }
 
-    /* 🔥 UPDATED BUTTON SIZE */
     .btn {
       padding: 13px 26px;
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
@@ -169,6 +175,9 @@
 
   <div class="container">
 
+    <!-- 🔥 LOGO -->
+    <img src="https://cdn-icons-png.flaticon.com/512/414/414825.png" class="logo">
+
     <h1>This Domain is For Sale</h1>
 
     <div class="line"></div>
@@ -186,7 +195,6 @@
       <button class="btn" onclick="toggleOffer()">Make an Offer</button>
     </div>
 
-    <!-- CONTACT -->
     <div id="contactBox" class="inline-box">
       <div class="contact-item email">
         📧 <a href="mailto:manithecool225@gmail.com">manithecool225@gmail.com</a>
@@ -199,7 +207,6 @@
       </div>
     </div>
 
-    <!-- OFFER FORM -->
     <form id="offerForm">
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
