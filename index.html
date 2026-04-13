@@ -1,236 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CloudStorm Domain</title>
+<meta charset="UTF-8">
+<title>CloudStorm Domain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+html {
+  font-size: clamp(18px, 1.4vw, 22px);
+}
 
-  <style>
-    html {
-      font-size: clamp(18px, 1.4vw, 22px);
-    }
+body {
+  margin: 0;
+  background: url('bg.png') no-repeat center center;
+  background-size: cover;
+  background-color: #0f172a;
 
-    body {
-      margin: 0;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
 
-      background: url('bg.png') no-repeat center center;
-      background-size: cover;
-      background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
+/* 🔥 DARK OVERLAY (important) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
+.container {
+  max-width: 600px;
+  padding: 30px 20px;
+}
 
-    .container {
-      max-width: 700px;
-      padding: 20px;
-    }
+/* TITLE */
+h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
 
-    /* 🔥 LOGO */
-    .logo {
-      width: 80px;
-      margin-bottom: 15px;
-      filter: drop-shadow(0 0 15px rgba(56,189,248,0.6));
-    }
+.line {
+  width: 180px;
+  height: 2px;
+  background: #38bdf8;
+  margin: 20px auto;
+}
 
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-    }
+p {
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
 
-    .line {
-      width: 200px;
-      height: 2px;
-      background: #38bdf8;
-      margin: 20px auto;
-    }
+/* PRICE */
+.price-box {
+  margin-top: 10px;
+}
 
-    p {
-      font-size: 1.3rem;
-      margin: 8px 0;
-    }
+.old-price {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.5);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 6px;
+}
 
-    .price {
-      font-size: 1.9rem;
-      margin-top: 10px;
-      color: #38bdf8;
-      font-weight: bold;
-    }
+/* YOUR STRIKE (kept same, slightly tuned) */
+.old-price::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2.5px;
 
-    .subtext {
-      font-size: 1rem;
-      opacity: 0.75;
-      margin-top: 10px;
-    }
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #60e6ff 25%,
+    #38bdf8 50%,
+    #60e6ff 75%,
+    transparent
+  );
 
-    .actions {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
+  transform: translateY(-50%);
+  box-shadow: 0 0 6px rgba(56,189,248,0.9);
+}
 
-    .btn {
-      padding: 13px 26px;
-      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-      color: #000;
-      border: none;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.new-price {
+  font-size: 2.3rem;
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 2px;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
+/* TRUST LINE */
+.trust {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
 
-    .inline-box {
-      display: none;
-      margin-top: 18px;
+/* SUBTEXT */
+.subtext {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-top: 12px;
+}
 
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
+/* BUTTONS */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
 
-      font-size: 1.1rem;
-    }
+.btn {
+  padding: 13px 26px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  color: #000;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.btn:hover {
+  transform: scale(1.07);
+}
 
-    .email a {
-      color: #e5e7eb;
-      text-decoration: none;
-    }
+/* CONTACT */
+.inline-box {
+  display: none;
+  margin-top: 18px;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+}
 
-    .whatsapp a {
-      color: #25D366;
-      text-decoration: none;
-      font-weight: 600;
-    }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .whatsapp-icon {
-      width: 20px;
-    }
+.email a {
+  color: #e5e7eb;
+  text-decoration: none;
+}
 
-    #offerForm {
-      display: none;
-      margin-top: 20px;
-    }
+.whatsapp a {
+  color: #25D366;
+  text-decoration: none;
+  font-weight: 600;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 6px 0;
-      border-radius: 4px;
-      border: none;
-      font-size: 1rem;
-    }
+.whatsapp-icon {
+  width: 20px;
+}
 
-    .submit-btn {
-      background: #22c55e;
-      color: white;
-      margin-top: 10px;
-    }
+/* FORM */
+#offerForm {
+  display: none;
+  margin-top: 20px;
+}
 
-    @media (max-width: 600px) {
-      body {
-        align-items: flex-start;
-        padding-top: 40px;
-      }
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+}
 
-      h1 {
-        font-size: 2.2rem;
-      }
+.submit-btn {
+  background: #22c55e;
+  color: white;
+  margin-top: 10px;
+}
 
-      .actions {
-        flex-direction: column;
-      }
+/* MOBILE */
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+    padding-top: 40px;
+  }
 
-      .btn {
-        width: 100%;
-      }
+  h1 {
+    font-size: 2.1rem;
+  }
 
-      .inline-box {
-        flex-direction: column;
-      }
-    }
-  </style>
+  .actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .inline-box {
+    flex-direction: column;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>This Domain is For Sale</h1>
+  <h1>This Domain is For Sale</h1>
 
-    <div class="line"></div>
+  <div class="line"></div>
 
-    <p>cloudstorm.in</p>
+  <p>cloudstorm.in</p>
 
-    <div class="price">₹25,000</div>
-
-    <div class="subtext">
-      Serious buyers only. Quick deal available.
-    </div>
-
-    <div class="actions">
-      <button class="btn" onclick="toggleContact()">Contact Owner</button>
-      <button class="btn" onclick="toggleOffer()">Make an Offer</button>
-    </div>
-
-    <div id="contactBox" class="inline-box">
-      <div class="contact-item email">
-        📧 <a href="mailto:manithecool225@gmail.com">manithecool225@gmail.com</a>
-      </div>
-
-      <div class="contact-item whatsapp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-             class="whatsapp-icon">
-        <a href="https://wa.me/919441810275">9441810275</a>
-      </div>
-    </div>
-
-    <form id="offerForm">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="number" placeholder="Your Offer Amount" required>
-      <textarea placeholder="Message (optional)"></textarea>
-      <button type="submit" class="btn submit-btn">Send Offer</button>
-    </form>
-
+  <!-- PRICE -->
+  <div class="price-box">
+    <div class="old-price">₹49,999/-</div>
+    <div class="new-price">₹25,000/-</div>
   </div>
 
-  <script>
-    function toggleContact() {
-      const box = document.getElementById("contactBox");
-      const form = document.getElementById("offerForm");
+  <!-- TRUST -->
+  <div class="trust">
+    ✔ Secure Transfer • ✔ Instant Ownership • ✔ Trusted Seller
+  </div>
 
-      form.style.display = "none";
-      box.style.display = (box.style.display === "flex") ? "none" : "flex";
-    }
+  <!-- URGENCY -->
+  <div class="subtext">
+    Only one buyer can own this domain.
+  </div>
 
-    function toggleOffer() {
-      const form = document.getElementById("offerForm");
-      const contact = document.getElementById("contactBox");
+  <!-- BUTTONS -->
+  <div class="actions">
+    <button class="btn" onclick="toggleContact()">Get This Domain</button>
+    <button class="btn" onclick="toggleOffer()">Make an Offer</button>
+  </div>
 
-      contact.style.display = "none";
-      form.style.display = (form.style.display === "block") ? "none" : "block";
-    }
-  </script>
+  <!-- CONTACT -->
+  <div id="contactBox" class="inline-box">
+    <div class="contact-item email">
+      📧 <a href="mailto:manithecool225@gmail.com">manithecool225@gmail.com</a>
+    </div>
+
+    <div class="contact-item whatsapp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon">
+      <a href="https://wa.me/919441810275?text=Hi I am interested in cloudstorm.in">9441810275</a>
+    </div>
+  </div>
+
+  <!-- OFFER -->
+  <form id="offerForm">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="number" placeholder="Your Offer Amount" required>
+    <textarea placeholder="Message (optional)"></textarea>
+    <button type="submit" class="btn submit-btn">Send Offer</button>
+  </form>
+
+</div>
+
+<script>
+function toggleContact() {
+  const box = document.getElementById("contactBox");
+  const form = document.getElementById("offerForm");
+
+  form.style.display = "none";
+  box.style.display = (box.style.display === "flex") ? "none" : "flex";
+}
+
+function toggleOffer() {
+  const form = document.getElementById("offerForm");
+  const contact = document.getElementById("contactBox");
+
+  contact.style.display = "none";
+  form.style.display = (form.style.display === "block") ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
