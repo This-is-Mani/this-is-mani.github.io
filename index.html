@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
 }
 
-/* 🔥 DARK OVERLAY (important) */
+/* DARK OVERLAY */
 body::before {
   content: "";
   position: fixed;
@@ -40,7 +40,6 @@ body::before {
   padding: 30px 20px;
 }
 
-/* TITLE */
 h1 {
   font-size: 2.6rem;
   margin-bottom: 10px;
@@ -71,7 +70,6 @@ p {
   margin-bottom: 6px;
 }
 
-/* YOUR STRIKE (kept same, slightly tuned) */
 .old-price::after {
   content: "";
   position: absolute;
@@ -97,17 +95,14 @@ p {
   font-size: 2.3rem;
   color: #ffffff;
   font-weight: bold;
-  margin-top: 2px;
 }
 
-/* TRUST LINE */
 .trust {
   margin-top: 12px;
   font-size: 0.9rem;
   opacity: 0.8;
 }
 
-/* SUBTEXT */
 .subtext {
   font-size: 1rem;
   opacity: 0.85;
@@ -166,10 +161,6 @@ p {
   font-weight: 600;
 }
 
-.whatsapp-icon {
-  width: 20px;
-}
-
 /* FORM */
 #offerForm {
   display: none;
@@ -180,7 +171,7 @@ input, textarea {
   width: 100%;
   padding: 10px;
   margin: 6px 0;
-  border-radius: 4px;
+  border-radius: 6px;
   border: none;
   font-size: 1rem;
 }
@@ -191,105 +182,11 @@ input, textarea {
   margin-top: 10px;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  body {
-    align-items: flex-start;
-    padding-top: 40px;
-  }
-
-  h1 {
-    font-size: 2.1rem;
-  }
-
-  .actions {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .inline-box {
-    flex-direction: column;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-  <h1>This Domain is For Sale</h1>
-
-  <div class="line"></div>
-
-  <p>cloudstorm.in</p>
-
-  <!-- PRICE -->
-  <div class="price-box">
-    <div class="old-price">₹49,999/-</div>
-    <div class="new-price">₹25,000/-</div>
-  </div>
-
-  <!-- TRUST -->
-  <div class="trust">
-    ✔ Secure Transfer • ✔ Instant Ownership • ✔ Trusted Seller
-  </div>
-
-  <!-- URGENCY -->
-  <div class="subtext">
-    Only one buyer can own this domain.
-  </div>
-
-  <!-- BUTTONS -->
-  <div class="actions">
-    <button class="btn" onclick="toggleContact()">Get This Domain</button>
-    <button class="btn" onclick="toggleOffer()">Make an Offer</button>
-  </div>
-
-  <!-- CONTACT -->
-  <div id="contactBox" class="inline-box">
-    <div class="contact-item email">
-      📧 <a href="mailto:contact@cloudstorm.in">contact@cloudstorm.in</a>
-    </div>
-
-    <div class="contact-item whatsapp">
-      <a href="https://wa.me/919441810275?text=Hi I am interested in cloudstorm.in">
-        Chat on WhatsApp
-      </a>
-    </div>
-    </div>
-
-  <!-- OFFER -->
-  <form id="offerForm">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <input type="number" placeholder="Your Offer Amount" required>
-    <textarea placeholder="Message (optional)"></textarea>
-    <button type="submit" class="btn submit-btn">Send Offer</button>
-  </form>
-
-</div>
-
-<script>
-function toggleContact() {
-  const box = document.getElementById("contactBox");
-  const form = document.getElementById("offerForm");
-
-  form.style.display = "none";
-  box.style.display = (box.style.display === "flex") ? "none" : "flex";
-}
-
-function toggleOffer() {
-  const form = document.getElementById("offerForm");
-  const contact = document.getElementById("contactBox");
-
-  contact.style.display = "none";
-  form.style.display = (form.style.display === "block") ? "none" : "block";
-}
-</script>
-
-</body>
-</html>
+/* SUCCESS MESSAGE */
+#successMessage {
+  display: none;
+  margin-top: 20px;
+  background: rgba(34,197,94,0.15);
+  border: 1px solid #22c55e;
+  padding: 15px;
+  border-radius
