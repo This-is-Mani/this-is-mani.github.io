@@ -167,6 +167,9 @@ input, textarea {
   border: 1px solid #22c55e;
   color: #22c55e;
   font-size: 0.95rem;
+
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
 /* MOBILE */
@@ -284,6 +287,7 @@ document.getElementById("offerForm").addEventListener("submit", async function(e
 
   const form = e.target;
   const data = new FormData(form);
+  const success = document.getElementById("successMessage");
 
   const response = await fetch(form.action, {
     method: "POST",
@@ -292,9 +296,26 @@ document.getElementById("offerForm").addEventListener("submit", async function(e
   });
 
   if (response.ok) {
-    form.reset(); // ✅ clears fields
+    form.reset();
     form.style.display = "none";
-    document.getElementById("successMessage").style.display = "block";
+
+    success.style.display = "block";
+
+    // trigger fade in
+    setTimeout(() => {
+      success.style.opacity = "1";
+    }, 10);
+
+    // fade out after 4s
+    setTimeout(() => {
+      success.style.opacity = "0";
+
+      setTimeout(() => {
+        success.style.display = "none";
+      }, 600);
+
+    }, 4000);
+
   } else {
     alert("Something went wrong. Please try again.");
   }
