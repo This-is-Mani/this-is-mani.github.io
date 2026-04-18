@@ -252,15 +252,31 @@ Only one buyer can own this domain.
 
 <script>
 function toggleContact() {
-  document.getElementById("contactBox").style.display = "flex";
-  document.getElementById("offerForm").style.display = "none";
-  document.getElementById("successMessage").style.display = "none";
+  const contact = document.getElementById("contactBox");
+  const form = document.getElementById("offerForm");
+  const success = document.getElementById("successMessage");
+
+  if (contact.style.display === "flex") {
+    contact.style.display = "none";
+  } else {
+    contact.style.display = "flex";
+    form.style.display = "none";
+    success.style.display = "none";
+  }
 }
 
 function toggleOffer() {
-  document.getElementById("contactBox").style.display = "none";
-  document.getElementById("offerForm").style.display = "block";
-  document.getElementById("successMessage").style.display = "none";
+  const contact = document.getElementById("contactBox");
+  const form = document.getElementById("offerForm");
+  const success = document.getElementById("successMessage");
+
+  if (form.style.display === "block") {
+    form.style.display = "none";
+  } else {
+    form.style.display = "block";
+    contact.style.display = "none";
+    success.style.display = "none";
+  }
 }
 
 document.getElementById("offerForm").addEventListener("submit", async function(e) {
@@ -276,6 +292,7 @@ document.getElementById("offerForm").addEventListener("submit", async function(e
   });
 
   if (response.ok) {
+    form.reset(); // ✅ clears fields
     form.style.display = "none";
     document.getElementById("successMessage").style.display = "block";
   } else {
